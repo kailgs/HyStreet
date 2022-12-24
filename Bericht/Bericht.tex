@@ -1,0 +1,60 @@
+\documentclass{article}
+
+% Packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{anysize}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{sectsty}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+
+% Einstellungen
+\definecolor{hyblue}{RGB}{24, 62, 98}
+\sectionfont{\color{hyblue}} % Überschriftfarbe
+\marginsize{30mm}{30mm}{20mm}{30mm} % Seitenränder
+\titlespacing*{\section}{0pt}{0.5cm}{0.8cm} % Platz nach Section
+\titlespacing*{\subsection}{0pt}{0.5cm}{0.5cm} % Platz nach Subsection
+\renewcommand{\contentsname}{Inhaltsverzeichnis} % Titel des Inhaltsverzeichnisses ändern
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    linkcolor=black,
+    filecolor=black,
+    urlcolor=black
+}
+
+% Titelseite
+\title{Datenpipeline zur Verarbeitung von Daten der Datenquelle HyStreet.com} % Titel
+\date{01-01-2023}
+\author{Mathieu, Daniel, Kai}
+
+% Dokument
+\begin{document}
+
+% Titelseite
+\pagenumbering{gobble}    
+\maketitle
+\newpage
+
+% Inhaltsverzeichnis
+\pagenumbering{roman}
+\doublespacing
+\tableofcontents
+\singlespacing
+
+% Inhalt
+\onehalfspacing
+\pagenumbering{arabic}
+\include{sections/motivation.tex}
+
+
+% Bildverzeichnis, Tabellenverzeichnis
+\begin{appendix}
+    \listoffigures
+    \listoftables
+\end{appendix}
+
+% Dokument beenden
+\end{document}
