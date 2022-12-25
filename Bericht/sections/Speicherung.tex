@@ -13,7 +13,7 @@ In diesem Abschnitt betrachten wir den Teil der Datenpipeline, in dem die Daten 
 Wie bereits erwähnt stand für uns nur die kostenfreie Alternative zur Verfügung, die Daten manuell über die Webseite für jeden einzelnen Standort herunterzuladen. In Abbildung \ref{fig:hystreet-download} zu sehen ist beispielhaft die Oberfläche der Webseite zum Herunterladen der Daten des Jungfernstegs in Hamburg. Auswählen ist Granularität der Daten, also, ob man die Angaben pro Stunde oder pro Tag möchte und der Zeitraum der gewünschten Daten ist auszuwählen.
 
 \begin{figure}[h!]
-    \vspace{0.4cm}
+    \vspace{0.6cm}
     \centering
     \includegraphics[width=0.9\linewidth]{images/hystreet-datendownload.png}
     \caption{Datenpipeline - Einlesen und verarbeiten der Daten}
@@ -24,7 +24,7 @@ Wie bereits erwähnt stand für uns nur die kostenfreie Alternative zur Verfügu
 Dieses Prozedere für jeden gewünschten Standort durchgeführt, erhalten wir die jeweiligen CSV-Dateien. Diese werden im Ordner \emph{input/} gespeichert, der Ordner, aus dem anschließend die Dateien eingelesen werden.
 
 \subsection{Aufbereiten der Daten}
-Wir wollen die Daten nun einlesen und anschließend so aufbereiten, dass wir sie später einfacher für die verschiedenen Analysen verwenden können. Das - und auch das Schreiben der Daten in die MongoDB - passiert im \emph{Skript 1}, das ebenfalls in ein Jupyter Notebook integriert ist. Dafür benötigen wir die Packages \emph{pymongo} (für die Verbindung zur MongoDB), \emph{pandas} (zum Arbeiten mit den Daten), \emph{json} (zum konvertieren von Daten in das JSON-Format) und \emph{os} zum interagieren mit dem Dateisystem.
+Die Daten werden nun eingelesen und anschließend so aufbereiten, dass sie später einfacher für die verschiedenen Analysen verwenden werden können. Das - und auch das Schreiben der Daten in die MongoDB - passiert im \emph{Skript 1}, das ebenfalls in ein Jupyter Notebook integriert ist. Dafür benötigen wir die Packages \emph{pymongo} (für die Verbindung zur MongoDB), \emph{pandas} (zum Arbeiten mit den Daten), \emph{json} (zum konvertieren von Daten in das JSON-Format) und \emph{os} zum interagieren mit dem Dateisystem.
 \bigbreak
 
 Nachdem wir die Packages importiert haben und die Datein im Ordner \emph{input/} aufgelistet haben, lesen wir diese jeweils in ein eigenes Pandas-Dataframe ein und speichern sie gemeinsam in einer Liste.
@@ -92,8 +92,8 @@ Nach der Definition der einzelnen Funktionen, werden diese nur noch auf den ursp
 \bigbreak
 
 \subsection{Speichern der Daten}
-Der letzte Schritt im \emph{Skript 1} besteht nun nur noch im Einlesen der Daten in die MongoDB. Dafür verwenden wir, wie erwähnt, das Package \emph{pymongo}. Zunächst wird also eine Verbindung zum lokalen MongoDB-Client hergestellt und die Verbindung in einer Variable gespeichert. Anschließend wählen wir über den Client die Database \emph{HyStreet} aus. Bevor wir die Daten nun einlesen, müssen wir diese noch in das JSON-Format überführen, was wir mit der Funktion \emph{DATAFRAME.to\_dict()}, zur Verfügung gestellt von \emph{Pandas}, erreichen. Danach können wir schließlich die Daten in die Collection \emph{HyStreetData} einfügen. 
-Damit wir die eingelesenen Dateien beim nächsten Durchlauf des Skripts nicht wiederholt einlesen verschieben wir die Dateien schließlich noch in einen anderen Ordner.
+Der letzte Schritt im \emph{Skript 1} besteht nun nur noch im Einlesen der Daten in die MongoDB. Dafür verwenden wir, wie erwähnt, das Package \emph{pymongo}. Zunächst wird also eine Verbindung zum lokalen MongoDB-Client hergestellt und die Verbindung in einer Variable gespeichert. Anschließend wählen wir über den Client die Database \emph{HyStreet} aus. Bevor wir die Daten nun einlesen, müssen diese noch in das JSON-Format überführt werden, was wir mit der Funktion \emph{DATAFRAME.to\_dict()}, zur Verfügung gestellt von \emph{Pandas}, erreichen. Danach können die Daten schließlich in die Collection \emph{HyStreetData} einfügen werden. 
+Damit die eingelesenen Dateien beim nächsten Durchlauf des Skripts nicht wiederholt eingelesen werden, werden die Dateien schließlich noch in einen anderen Ordner verschoben.
 
 \bigbreak
 \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]

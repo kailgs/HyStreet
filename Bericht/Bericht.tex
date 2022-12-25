@@ -4,7 +4,6 @@
 \input{jupyter-preamble.tex}
 
 % Packages
-
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{anysize}
@@ -17,7 +16,7 @@
 % Einstellungen
 \definecolor{hyblue}{RGB}{24, 62, 98}
 \sectionfont{\color{hyblue}} % Überschriftfarbe
-\marginsize{30mm}{30mm}{20mm}{30mm} % Seitenränder
+\marginsize{25mm}{25mm}{15mm}{25mm} % Seitenränder (links, rechts, oben, unten)
 \titlespacing*{\section}{0pt}{0.5cm}{0.8cm} % Platz nach Section
 \titlespacing*{\subsection}{0pt}{1.3cm}{0.5cm} % Platz nach Subsection
 \renewcommand{\contentsname}{Inhaltsverzeichnis} % Titel des Inhaltsverzeichnisses ändern
@@ -58,7 +57,8 @@
 \pagenumbering{arabic}
 \include{sections/motivation.tex}
 \include{sections/datenpipeline.tex}
-\include{sections/Speicherung.tex}
+\include{sections/speicherung.tex}
+\include{sections/visualisierung.tex}
 
 
 % Bildverzeichnis, Tabellenverzeichnis
