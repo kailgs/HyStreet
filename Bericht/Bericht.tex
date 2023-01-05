@@ -1,0 +1,71 @@
+\documentclass{article}
+
+% Präambel, um Jupyter-Blocks zu importieren
+\input{jupyter-preamble.tex}
+
+% Packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{anysize}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{sectsty}
+\usepackage{titlesec}
+% \usepackage{hyperref}
+
+% Einstellungen
+\definecolor{hyblue}{RGB}{24, 62, 98}
+\sectionfont{\color{hyblue}} % Überschriftfarbe
+\marginsize{25mm}{25mm}{15mm}{25mm} % Seitenränder (links, rechts, oben, unten)
+\titlespacing*{\section}{0pt}{0.5cm}{0.8cm} % Platz nach Section
+\titlespacing*{\subsection}{0pt}{1.3cm}{0.5cm} % Platz nach Subsection
+\renewcommand{\contentsname}{Inhaltsverzeichnis} % Titel des Inhaltsverzeichnisses ändern
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    linkcolor=black,
+    filecolor=black,
+    urlcolor=black
+}
+
+% Titelseite
+\title{{\Large Datenpipeline zur Verarbeitung von Daten der Datenquelle HyStreet.com}} % Titel
+\date{01-01-2023}
+\author{Mathieu, Daniel, Kai}
+
+% Dokument
+\begin{document}
+
+% Titelseite
+\pagenumbering{gobble}    
+\maketitle
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{images/hystreet-Logo.png}
+\end{figure}
+\newpage
+
+% Inhaltsverzeichnis
+\pagenumbering{roman}
+\doublespacing
+\tableofcontents
+\singlespacing
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Inhalt %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\onehalfspacing
+\pagenumbering{arabic}
+\include{sections/motivation.tex}
+\include{sections/datenpipeline.tex}
+\include{sections/speicherung.tex}
+\include{sections/visualisierung.tex}
+
+
+% Bildverzeichnis, Tabellenverzeichnis
+\begin{appendix}
+    \listoffigures
+    \listoftables
+\end{appendix}
+
+% Dokument beenden
+\end{document}
